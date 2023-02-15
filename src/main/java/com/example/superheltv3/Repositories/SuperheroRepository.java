@@ -31,7 +31,7 @@ public class SuperheroRepository {
 
     public List<Superhero> searchSuperhero(String superheroName) {
 
-        ArrayList<Superhero> superheroesMatch = new ArrayList<>();
+        List<Superhero> superheroesMatch = new ArrayList<>();
 
         for (Superhero søgning : superheroes) {
             if (søgning.getSuperheroName().toLowerCase().startsWith(superheroName.toLowerCase())) {
@@ -41,6 +41,19 @@ public class SuperheroRepository {
 
         }
         return superheroesMatch;
+    }
+
+    public Superhero searchForSuperhero(String superheroName) {
+        //List<Superhero> superheroMatch = new ArrayList<>();
+        Superhero superheroMatch = null;
+
+        for (Superhero søgning : superheroes) {
+            if (søgning.getSuperheroName().toLowerCase().contains(superheroName.toLowerCase())) {
+
+                superheroMatch = søgning;
+            }
+        }
+        return superheroMatch;
     }
 
     public void editSuperhero(int index, String superheroName, String superPowers, String realName, int yearCreated, String isHuman, double strength) {

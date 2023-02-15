@@ -28,6 +28,10 @@ public class SuperheroService {
         return superheroRepository.searchSuperhero(superheroName);
     }
 
+    public Superhero searchForSuperhero(String superheroName) {
+        return superheroRepository.searchForSuperhero(superheroName);
+    }
+
     public void editSuperhero(int index, String superheroName, String superPowers, String realName,
                               int yearCreated, String isHuman, double strength) {
         superheroRepository.editSuperhero(index,superheroName,superPowers,realName,yearCreated,isHuman,strength);
