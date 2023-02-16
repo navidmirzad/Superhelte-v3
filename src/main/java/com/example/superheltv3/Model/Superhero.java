@@ -6,11 +6,11 @@ public class Superhero {
     private String superPowers;
     private String realName;
     private int yearCreated;
-    private String isHuman;      // TODO: make boolean
+    private boolean isHuman;      // TODO: make boolean
     private double strength;
 
 
-    public Superhero(String superheroName,String superPowers,String realName,int yearCreated,String isHuman,double strength) {
+    public Superhero(String superheroName,String superPowers,String realName,int yearCreated,boolean isHuman,double strength) {
         this.superheroName = superheroName;
         this.superPowers = superPowers;
         this.realName = realName;
@@ -19,9 +19,6 @@ public class Superhero {
         this.strength = strength;
     }
 
-    public Superhero() {
-
-    }
 
     public String getSuperheroName() {
         return superheroName;
@@ -39,7 +36,7 @@ public class Superhero {
         return yearCreated;
     }
 
-    public String getIsHuman() {
+    public boolean getIsHuman() {
         return isHuman;
     }
 
@@ -63,7 +60,7 @@ public class Superhero {
         this.yearCreated = yearCreated;
     }
 
-    public void setIsHuman(String isHuman) {
+    public void setIsHuman(boolean isHuman) {
         this.isHuman = isHuman;
     }
 

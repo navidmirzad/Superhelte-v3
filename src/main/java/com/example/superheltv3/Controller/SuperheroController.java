@@ -6,9 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,24 +27,27 @@ public class SuperheroController {
     }
 
     @GetMapping("/{superheroName}")
-    public ResponseEntity<Superhero> getSuperHero(@PathVariable String superheroName) {
+    public ResponseEntity<Superhero> getSuperhero(@PathVariable String superheroName) {
         Superhero superhero = superheroService.searchForSuperhero(superheroName);
         return new ResponseEntity<>(superhero, HttpStatus.OK);
     }
 
-    // createSuperHero TODO: finish it, doesnt work rn
-    /*@GetMapping("/create")
-    public ResponseEntity<List<Superhero>> createSuperHero() {
-        List listOfSuperheroes = superheroService.createSuperhero();
-        return new ResponseEntity<List<Superhero>>(listOfSuperheroes, HttpStatus.OK);
-    }*/
+    @PostMapping("/create/")
+    public ResponseEntity<Superhero> createSuperhero(@RequestBody Superhero superhero) {
+        Superhero returnSuperhero = superheroService.createSuperhero(superhero);
+        return new ResponseEntity<>(returnSuperhero, HttpStatus.OK);
+    }
 
+    @PutMapping("/edit/")
+    public ResponseEntity<Superhero> editSuperhero(@RequestBody Superhero superhero) {
+        Superhero editSuperhero = superheroService.editSuperhero(superhero);
+        return new ResponseEntity<>(editSuperhero, HttpStatus.OK);
+    }
 
-    // deleteSuperHero TODO: finish it, doesnt work rn
-    /*@GetMapping("/delete/{superheroName}")
-    public ResponseEntity<List<Superhero>> deleteSuperhero() {
-        List listOfSuperHeroes = superheroService.deleteSuperhero();
-        return new ResponseEntity<List<Superhero>>(listOfSuperHeroes, HttpStatus.OK);
-    }*/
+    @DeleteMapping("/delete/")
+    public ResponseEntity<Superhero> deleteSuperhero(@RequestBody Superhero superhero) {
+        Superhero deleteSuperhero = superheroService.deleteSuperhero(superhero);
+        return new ResponseEntity<>(deleteSuperhero, HttpStatus.OK);
+    }
 
 }
